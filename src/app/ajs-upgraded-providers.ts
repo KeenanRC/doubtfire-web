@@ -8,6 +8,7 @@ export const auth = new InjectionToken('auth');
 export const currentUser = new InjectionToken('currentUser');
 export const Task = new InjectionToken('Task');
 export const taskService = new InjectionToken('taskService');
+export const taskFeedbackService  = new InjectionToken('taskFeedbackService');
 export const gradeService = new InjectionToken('gradeService');
 export const analyticsService = new InjectionToken('analyticsService');
 export const projectService = new InjectionToken('projectService');
@@ -78,6 +79,12 @@ export const taskServiceProvider = {
   provide: taskService,
   useFactory: (i: any) => i.get('taskService'),
   deps: ['$injector'],
+};
+
+export const taskFeedbackServiceProvider = {
+  provide: taskFeedbackService, 
+  useFactory: (i: any) => i.get('TaskFeedback'), 
+  deps: ['$injector'], 
 };
 
 export const gradeServiceProvider = {
@@ -151,3 +158,4 @@ export const UnitStudentEnrolmentModalProvider = {
   useFactory: (i: any) => i.get('UnitStudentEnrolmentModal'),
   deps: ['$injector'],
 };
+
